@@ -1,13 +1,24 @@
 from typing import Type
 
 
-class Dollar:
+class Money:
     def __init__(self, amount:int):
-        self.__amount = amount
+        # Protected Variable: 子クラスからもアクセスできる
+        self._amount = amount
+    
+    def __eq__(self, money: Type['Money']) -> bool:
+        return self._amount == money._amount
+
+class Dollar(Money):
+    def __init__(self, amount:int):
+        super().__init__(amount)
     
     def times(self, multiplier:int) -> Type['Dollar']:
-        return Dollar(self.__amount * multiplier)
+        return Dollar(self._amount * multiplier)
+
+class Franc(Money):
+    def __init__(self, amount:int):
+        super().__init__(amount)
     
-    def __eq__(self, o: Type['Dollar']) -> bool:
-        dollar = o
-        return self.__amount == dollar.__amount 
+    def times(self, multiplier:int) -> Type['Franc']:
+        return Franc(self._amount * multiplier)

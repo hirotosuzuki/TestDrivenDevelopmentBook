@@ -11,9 +11,3 @@ class Dollar:
     def equals(self, o:Type['Dollar']) -> bool:
         dollar = o
         return self.amount == dollar.amount
-    
-    def __eq__(self, o: object) -> bool:
-        pass
-
-    def __hash__(self) -> int:
-        pass

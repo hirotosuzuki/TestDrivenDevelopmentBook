@@ -9,11 +9,9 @@ def test_version():
 class TestMoney:
     def test_multiplication(self):
         five = Dollar(5)
-        product = five.times(2)
-        assert product.amount==10
-        product = five.times(3)
-        assert product.amount==15
+        assert five.times(2) == Dollar(10)
+        assert five.times(3) == Dollar(15)
     
     def test_equality(self):
-        assert Dollar(5).equals(Dollar(5))
-        assert not Dollar(5).equals(Dollar(6))
+        assert Dollar(5) == Dollar(5)
+        assert Dollar(5) != Dollar(6)

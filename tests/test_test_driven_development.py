@@ -1,5 +1,5 @@
 from test_driven_development import __version__
-from test_driven_development.dollar import Dollar, Franc
+from test_driven_development.dollar import *
 
 
 def test_version():
@@ -8,13 +8,13 @@ def test_version():
 
 class TestMoney:
     def test_multiplication(self):
-        five = Dollar(5)
-        assert five.times(2) == Dollar(10)
-        assert five.times(3) == Dollar(15)
+        five = Money.dollar(5)
+        assert five.times(2) == Money.dollar(10)
+        assert five.times(3) == Money.dollar(15)
     
     def test_equality(self):
-        assert Dollar(5) == Dollar(5)
-        assert Dollar(5) != Dollar(6)
+        assert Money.dollar(5) == Money.dollar(5)
+        assert Money.dollar(5) != Money.dollar(6)
         assert Franc(5) == Franc(5)
         assert Franc(5) != Franc(6)
-        assert Franc(5) != Dollar(5)
+        assert Franc(5) != Money.dollar(5)

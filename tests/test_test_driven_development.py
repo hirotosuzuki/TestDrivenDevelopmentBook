@@ -15,6 +15,6 @@ class TestMoney:
     def test_equality(self):
         assert Money.dollar(5) == Money.dollar(5)
         assert Money.dollar(5) != Money.dollar(6)
-        assert Franc(5) == Franc(5)
-        assert Franc(5) != Franc(6)
-        assert Franc(5) != Money.dollar(5)
+        assert Money.franc(5) == Money.franc(5)
+        assert Money.franc(5) != Money.franc(6)
+        assert Money.franc(5) != Money.dollar(5)

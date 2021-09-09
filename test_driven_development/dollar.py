@@ -10,13 +10,18 @@ class Money(metaclass=ABCMeta):
     def __eq__(self, money: Money) -> bool:
         return self._amount==money._amount and self.__class__==money.__class__
     
-    @classmethod
-    def dollar(cls, amount:int) -> Money:
+    @staticmethod
+    def dollar(amount:int) -> Money:
         return Dollar(amount)
+    
+    @staticmethod
+    def franc(amount: int) -> Money:
+        return Franc(amount)
     
     @abstractmethod
     def times(self, multiplier:int) -> Money:
         pass
+
 
 class Dollar(Money):
     def __init__(self, amount:int):
